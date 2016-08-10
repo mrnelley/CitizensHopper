@@ -1,0 +1,24 @@
+<%= @current_bills.each do |bill| %>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @current_bills.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @current_bills.kind %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @current_bills.content %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @current_bills.sponsor %>
+</p>
+<%= end %>
+<!-- <%#= link_to 'Edit', edit_bill_path(@bill) %> | -->
+<!-- <%#= link_to 'Back', bills_path %> -->

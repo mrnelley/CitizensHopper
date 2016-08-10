@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @kind %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @content %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @sponsor %>
+</p>
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>
