@@ -1,3 +1,4 @@
 class UserCreatedBill < ActiveRecord::Base
-  has_many :users, through: :authorships
+  belongs_to :authorship
+  has_many :users, through: :authorship
 end
