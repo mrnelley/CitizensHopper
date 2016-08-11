@@ -1,6 +1,6 @@
-class CreateUserCreatedBills < ActiveRecord::Migration
+class CreateUsercreatedbills < ActiveRecord::Migration
   def change
-    create_table :user_created_bills do |t|
+    create_table :usercreatedbills do |t|
       t.string :title
       t.string :kind
       t.string :sponsor

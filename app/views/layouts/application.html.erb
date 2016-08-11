@@ -9,7 +9,48 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+  <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button> <a class="navbar-brand" href="/" style="font-size: 100px; font-family: 'Molle', cursive">Citizen's Hopper</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="/bills/index">Congressional Bills</a>
+						</li>
+						<li>
+							<a href="/">Congress</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input class="form-control" type="text" />
+						</div>
+						<button type="submit" class="btn btn-default">
+							Seach
+						</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="<%new_session_path(resource_name)%>">Log In</a>
+						</li>
+            <li>
+							<a href="<%new_registration_path(resource_name)%>">Sign up</a>
+						</li>
+					</ul>
+				</div>
+
+			</nav>
+		</div>
+	</div>
+</div>
 
 <%= yield %>
 

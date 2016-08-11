@@ -15,9 +15,9 @@
   <tbody>
     <% @user_created_bills.each do |bill| %>
       <tr>
-        <td><%= user_created_bill.title %></td>
-        <td><%= user_created_bill.kind %></td>
-        <td><%= user_created_bill.content %></td>
+        <td><%= bill.title %></td>
+        <td><%= bill.kind %></td>
+        <td><%= bill.content %></td>
         <td><%= link_to 'Show', user_created_bill %></td>
         <td><%= link_to 'Edit', edit_user_created_bill_path(bill) %></td>
         <td><%= link_to 'Destroy', user_created_bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>

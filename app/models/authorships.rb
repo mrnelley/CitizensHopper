@@ -1,4 +1,4 @@
 class Authorship < ActiveRecord::Base
   belongs_to :users
-  belongs_to :user_created_bills
+  has_many_and_belongs_to :usercreatedbills
 end
