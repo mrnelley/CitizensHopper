@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Title:</strong>
-  <%= @title %>
+  <%= @bill.title %>
 </p>
 
 <p>
   <strong>Type:</strong>
-  <%= @kind %>
+  <%= @bill.kind %>
 </p>
 
 <p>
   <strong>Content:</strong>
-  <%= @content %>
+  <%= @bill.content %>
 </p>
 
 <p>
   <strong>Sponsor:</strong>
-  <%= @sponsor %>
+  <%= @bill.sponsor %>
 </p>
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %>

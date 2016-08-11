@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'landing#landing'
   devise_for :users
   resources :authorships, only: [:show]
   resources :usercreatedbills
-  resources :bills, only: [:show]
+  resources :bills
+  get '/get_bills', to: 'bills#get_bills'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

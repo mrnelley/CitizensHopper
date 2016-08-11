@@ -2,7 +2,7 @@ class BillsController < ApplicationController
   # before_action only: [:show, :update, :destroy, :get_bill]
   # GET /bills
   # GET /bills.json
-  def get_bill
+  def get_bills
     url = "https://www.govtrack.us/api/v2/bill?congress=112&order_by=-current_status_date"
 
     response = HTTParty.get(url)
@@ -23,15 +23,23 @@ class BillsController < ApplicationController
       content = api_bill["link"]
       bill = Bill.create!(title: title, sponsor: sponsor_name, kind: kind, content: content)
     end
+    @bills = Bill.all
+    render "index"
   end
 
+  def index
+    @user = current_user
+    @bills = Bill.all
+  end
   # GET /bills/1
   # GET /bills/1.json
   def show
-    if !current_user
-      redirect_to "Sign Up", new_user_registration_path
-    else
-      @bill = Bill.get_bill
+    # if !current_user
+    #   redirect_to "Sign Up", new_user_registration_path
+    # else
+    #   @bill = Bill.get_bill
+    # end
+    @bill = Bill.find(params[:id])
   end
 
   # GET /bills/new
@@ -91,6 +99,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.fetch(:title, :kind, :sponsor, :content)
+      params.require(:bill).permit(:title, :kind, :sponsor, :content)
     end
 end

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bills</h1>
+<h1>Listing Your Bills</h1>
 
 <table>
   <thead>
@@ -13,19 +13,19 @@
   </thead>
 
   <tbody>
-    <% @user_created_bills.each do |bill| %>
+    <% @usercreatedbills.each do |bill| %>
       <tr>
-        <td><%= bill.title %></td>
+        <td><%= link_to bill.title, usercreatedbill_path(bill) %></td>
         <td><%= bill.kind %></td>
         <td><%= bill.content %></td>
-        <td><%= link_to 'Show', user_created_bill %></td>
-        <td><%= link_to 'Edit', edit_user_created_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', user_created_bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_usercreatedbill_path(bill) %></td>
+        <td><%= link_to 'Destroy', usercreatedbill_path(bill), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Bill', new_user_created_bill_path %>
+<%= link_to 'New Bill', new_usercreatedbill_path %>

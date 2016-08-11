@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :authorships
-  has_many :usercreated_bills, through: :authorships
+  has_many :usercreatedbills, through: :authorships
 end

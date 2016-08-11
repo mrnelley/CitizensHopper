@@ -1,10 +1,10 @@
-<%= form_for(@user_created_bill) do |f| %>
-  <% if @user_created_bill.errors.any? %>
+<%= form_for(@usercreatedbill) do |f| %>
+  <% if @usercreatedbill.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user_created_bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+      <h2><%= pluralize(@usercreatedbill.errors.count, "error") %> prohibited this bill from being saved:</h2>
 
       <ul>
-      <% @user_created_bill.errors.full_messages.each do |message| %>
+      <% @usercreatedbill.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

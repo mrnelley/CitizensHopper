@@ -1,49 +1,58 @@
-class UserCreatedBillsController < ApplicationController
-  before_action :set_user_created_bill, only: [:show, :edit, :update, :destroy, :new]
-
+class UsercreatedbillsController < ApplicationController
+  # before_action :set_usercreatedbill, only: [:show, :edit, :update, :destroy, :new]
+  before_action :authenticate_user!
+  @usercreatedbills = Usercreatedbill.all  
   def index
-    @user_created_bills = UserCreatedBill.all
+    @usercreatedbills = Usercreatedbill.all
   end
+
   def edit
+      @usercreatedbill = Usercreatedbill.find(params[:id])
   end
+
   def show
-    redirect_to user_created_bills_path
+    @usercreatedbill = Usercreatedbill.find(params[:id])
   end
+
   def new
-    @user_created_bill = UserCreatedBill.new
+    @usercreatedbill = Usercreatedbill.new
   end
+
   def create
-    @user_created_bill = Bill.new(user_created_bill_params)
+    @usercreatedbill = Usercreatedbill.new(usercreatedbill_params)
 
     respond_to do |format|
-      if @user_created_bill.save
-        format.html { redirect_to @user_created_bill, notice: 'Bill was successfully created.' }
+      if @usercreatedbill.save
+        format.html { redirect_to @usercreatedbill, notice: 'Bill was successfully created.' }
       else
         format.html { render :new }
       end
     end
   end
+
   def update
+    @usercreatedbill = Usercreatedbill.find(params[:id])
     respond_to do |format|
-      if @user_created_bill.update(user_created_bill_params)
-        format.html { redirect_to @user_created_bill, notice: 'Bill was successfully updated.' }
+      if @usercreatedbill.update(usercreatedbill_params)
+        format.html { redirect_to @usercreatedbill, notice: 'Bill was successfully updated.' }
       else
         format.html { render :edit }
       end
     end
   end
   def destroy
-    @user_created_bill.destroy
+    @usercreatedbill = Usercreatedbill.find(params[:id])
+    @usercreatedbill.destroy
     respond_to do |format|
-      format.html { redirect_to user_created_bills_url, notice: 'Bill was successfully destroyed.' }
+      format.html { redirect_to usercreatedbills_url, notice: 'Bill was successfully destroyed.' }
     end
   end
   private
-  def set_user_created_bill
-    @user_created_bill = UserCreatedBill.all
-  end
+  # def set_usercreatedbill
+  #   @usercreatedbill = UserCreatedBill.all
+  # end
 
-  def bill_params
-      params.require(:user_created_bill).permit(:title, :kind, :content, :sponsor)
+  def usercreatedbill_params
+      params.require(:usercreatedbill).permit(:title, :kind, :content, :sponsor)
   end
 end
