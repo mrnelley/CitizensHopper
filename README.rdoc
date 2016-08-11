@@ -26,3 +26,9 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Citizens Hopper:
+Representatives introduce bills by placing them in the bill hopper attached to the side of the Clerk’s desk in the Chamber. The term derives from a funnel-shaped storage bin filled from the top and emptied from the bottom, which is often used to house grain or coal. Bills are retrieved from the hopper and referred to committees with the appropriate jurisdiction. The hopper shown here became part of the House Collection of Art and Artifacts after it was retired in 2003.
+Citizens Hopper is a Web application that allows users to present user created bills and will be able to communicate approval and support for legislation created by Congressional representatives.
+The app uses an api from govtrack.us (https://www.govtrack.us/developers/api) to print current bills on the docket for the US House of Representatives
+Documentation can be found at :https://www.govtrack.us/api/v2/bill?congress=112&order_by=-current_status_date

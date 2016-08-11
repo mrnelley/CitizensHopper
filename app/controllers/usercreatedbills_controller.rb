@@ -1,7 +1,7 @@
 class UsercreatedbillsController < ApplicationController
   # before_action :set_usercreatedbill, only: [:show, :edit, :update, :destroy, :new]
   before_action :authenticate_user!
-  @usercreatedbills = Usercreatedbill.all  
+  
   def index
     @usercreatedbills = Usercreatedbill.all
   end

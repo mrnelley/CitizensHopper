@@ -14,7 +14,7 @@
       <tr>
         <td><%= link_to bill.title, bill %></td>
         <td><%= bill.kind%></td>
-        <td><%= bill.content%></td>
+        <td><%= link_to bill.content, bill.content, :target => "_blank" %></td>
         <td><%= bill.sponsor%></td>
       </tr>
     <% end %>
@@ -24,4 +24,3 @@
 <br>
 <%= link_to "Congressional Bills", get_bills_path %>
 <%= link_to 'Create New Bill', new_bill_path %>
-  
