@@ -28,7 +28,10 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
-    @bill = Bill.get_bill
+    if !current_user
+      redirect_to "Sign Up", new_user_registration_path
+    else
+      @bill = Bill.get_bill
   end
 
   # GET /bills/new

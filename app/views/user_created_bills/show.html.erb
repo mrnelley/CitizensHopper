@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @user_created_bill.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @user_created_bill.kind %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @user_created_bill.content %>
+</p>
+
+<%= link_to 'Edit', edit_user_created_bill_path(@user_created_bill) %> |
+<%= link_to 'Back', user_created_bills_path %>

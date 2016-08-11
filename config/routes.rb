@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root "bills#get_bill"
+  root 'users#index'
   devise_for :users do
-    resources :authorships do
-      resources :user_created_bills
+    resources :user_created_bills do
+      resources :authorships 
     end
   end
   resources :bills

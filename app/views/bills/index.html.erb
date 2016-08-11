@@ -12,12 +12,10 @@
   <tbody>
     <% @bills.each do |bill| %>
       <tr>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= bill.title%></td>
+        <td><%= link_to '<%= bill.title%>', bill %></td>
         <td><%= bill.kind%></td>
         <td><%= bill.content%></td>
         <td><%= bill.sponsor%></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Bill', new_bill_path %>
+<%= link_to 'Create New Bill', new_bill_path %>
