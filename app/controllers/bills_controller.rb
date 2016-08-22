@@ -2,18 +2,15 @@ class BillsController < ApplicationController
   # before_action only: [:show, :update, :destroy, :get_bill]
   # GET /bills
   # GET /bills.json
+
+  # I know the piece de resistance of the project was this API call and getting it to save into PG!
   def get_bills
+    # I know that for reasons of ease of getting this code to work, this is in the controller, but I think should really be in the model definition for bills. It's also possible to simplify your problem domain by having just one bill model with a "user_created" or "is_congressional" boolean property. See bill model for details on this potential direction.
     url = "https://www.govtrack.us/api/v2/bill?congress=112&order_by=-current_status_date"
 
     response = HTTParty.get(url)
     @reponse = response
-    # @currentbill = response["objects"][0]
-    # @sponsor = response["objects"][0]["sponsor"]["name"]
-    # @title = response["objects"][0]["title"]
-    # @kind = response["objects"][0]["bill_type"]
-    # @content = response["objects"][0]["link"]
-    # @bill = Bill.new(title: @title, sponsor: @sponsor, kind: @kind, content: @content)
-    # @bill.save!
+
 
     @current_bills = response["objects"]
     @current_bills.each do |api_bill|
@@ -21,6 +18,7 @@ class BillsController < ApplicationController
       title = api_bill["title"]
       kind = api_bill["bill_type"]
       content = api_bill["link"]
+      # you could also call .create passsing in an array of hashes, rather than from within .each-- though you'd still use .each to build the array of hashes, culling the 4 properties above from the response. i am not sure this would be more performance-optimized, however.
       bill = Bill.create!(title: title, sponsor: sponsor_name, kind: kind, content: content)
     end
     @bills = Bill.all
@@ -49,6 +47,7 @@ class BillsController < ApplicationController
 
   # GET /bills/1/edit
   def edit
+    # need an instance variable here @bill, form errors out
   end
 
   # POST /bills
